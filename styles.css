@@ -1,0 +1,96 @@
+/*Style the main container*/
+.backdrop {
+  background-color: rgb(146, 198, 247);
+  width: 400px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 20px;
+  filter: brightness(1.7);
+  cursor: default;
+}
+
+/*Style the shapes*/
+.shapes {
+  color: transparent;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 20px beige;
+  mix-blend-mode: multiply;
+  font: bolder 320pt/320pt monospace;
+  margin-top: -100px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+/*Add the hover effect*/
+.backdrop:hover > .shapes:nth-of-type(1) {
+  animation: 2s ease-in-out infinite alternate move;
+}
+
+.backdrop:hover > .shapes:nth-of-type(2):hover {
+  animation: 4s ease-in-out infinite alternate move1;
+}
+
+.content {
+  isolation: isolate;
+  width: 300px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.39);
+  padding: 25px;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(253, 253, 253);
+  font-weight: bold;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+.content img {
+    width: 30%;
+    height: 100%;
+}
+
+body > *,
+.backdrop > * {
+  grid-area: 1/1;
+}
+
+body,
+.backdrop {
+  display: grid;
+}
+
+body {
+  margin: 0;
+  align-items: center;
+  justify-items: center;
+  height: 100vh;
+}
+@keyframes move {
+  from {
+    text-indent: -20px;
+  }
+  to {
+    text-indent: 20px;
+  }
+}
+
+@keyframes move1 {
+  from {
+    text-indent: -60px;
+  }
+  to {
+    text-indent: 40px;
+  }
+}
+
+/* for chrome */
+@supports (-webkit-app-region: none) {
+  .shapes {
+    text-shadow: 0 0 10px beige;
+  }
+}
+
+/* this is a demo code only */
